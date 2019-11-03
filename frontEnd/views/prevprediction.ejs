@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+    <title>View Experiment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/croppr.css">
+    <link rel="stylesheet" href="/stylesheets/cropper.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/viewexperiment.js"></script>
+    <link rel="stylesheet" href="/stylesheets/viewexperiment.css">
+    <script src="/javascripts/croppr.js"></script>
+    <script src="/javascripts/cropper.js"></script>
+    <script src="/javascripts/cropper.js"></script>
+    <script src="/javascripts/prevprediction.js"></script>
+
+    <style>
+        #loadingPredict {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            /* background: rgb(255, 255, 255, 0.5) url('/images/loading.gif') no-repeat center center; */
+            background: #ffffff url('/images/loading.gif') no-repeat center center;
+            z-index: 9999;
+        }
+        .filterForm{display:block;width:100%;background:#fff;margin:80px 0 0;}
+        .input-group .form-control{height:40px;}
+        .input-group-btn{font-size:24px;color:#000;padding-right:15px;}
+        #applydate{margin:0;width:auto;height:40px;margin-left:15px;background:#337ab7;border:None;border-radius:5px;color:#fff;padding:0px 20px;line-height:40px;text-transform:uppercase;}
+        .backBtn{text-align:right;}
+        .backBtn a{display:inline-block;padding:20px 0;}
+    </style>
+
+</head>
+<body>
+
+<div id="loadingPredict" style="display: none"></div>
+
+<div class="container">
+    <!-- Navigation Bar -->
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/home">Home </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome, <%= uname %>!</a></li>
+                        <li>
+                            <form class="form" id="form" method="POST" action="/logout">
+                                <a href="/logout" onclick="document.getElementById('form').submit(); return false;">Logout</a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Apply Filter by date  -->
+    <div class="row filterForm">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+            <form class="form" method="POST" action="<%= id %>/filter" >
+                <div class="input-group">
+                    <span class="input-group-btn expBirthDate">Previous date </span>
+                    <span class="date_filter"><input type="date" class="form-control" name="prevdate" required autofocus id="prevdate" /></span>
+                    <span class="input-group-btn applydate apply_date"> <input type="submit" value="apply" id="applydate"></span>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 backBtn">
+            <a href="/viewExperiment/<%= id %>"><button type="button" class="btn btn-primary" id="Back">Back</button></a>
+        </div>
+    </div>
+
+    <br>
+
+    <!-- Display predictions -->
+    <div class="row">
+
+        <% for (var i = 0; i < data.length; i++) { %>
+
+        <div class="col-md-4" style="margin: 10px 0 10px 0;">
+            <div class="img-responsive img-thumbnail">
+                <a href="viewExperiment/<%= data[i].exp_id %>"></a>
+                <p><img class=scaled src="/uploads/<%= data[i].img %>"></p>
+                <hr>
+
+                <p>Type : <b>  <%= data[i].exp_type %></b></p>
+                <p>Prediction On : <b> <%= data[i].created_at %> </b></p>
+                </a>
+            </div>
+        </div>
+        <% } %>
+
+
+    </div>
+
+    <br>
+    <br>
+
+    <style>
+        .btn {
+            padding: 6px 11px;
+
+        }
+    </style>
+
+</div>
+</body>
+</html>

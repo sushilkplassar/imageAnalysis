@@ -1,0 +1,172 @@
+.form {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form .form-heading, .form .checkbox {
+    margin-bottom: 10px;
+}
+
+.form .checkbox {
+    font-weight: normal;
+}
+
+.form .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form .form-control:focus {
+    z-index: 2;
+}
+
+.form input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.account-wall {
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.login-title {
+    color: #555;
+    font-size: 30px;
+    font-weight: 400;
+    display: block;
+}
+
+.need-help {
+    margin-top: 10px;
+}
+
+.new-account {
+    display: block;
+    margin-top: 10px;
+}
+
+h3 {
+    padding: 15px;
+}
+
+/*home page */
+.thumbnail {
+    height: 290px;
+    width: 80%;
+    border: silver solid;
+    margin: 0.5em;
+    padding: 0.5em;
+    text-align: center;
+    font-style: italic;
+    font-size: large;
+    text-indent: 0;
+}
+
+img.scaled {
+    height: 220px;
+    width: 100%;
+}
+
+.thumbnail b {
+    position: absolute;
+    bottom: 10%;
+    left: 12%;
+    color: black;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    top: 1px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(35px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+#del_img{
+    padding: 6px;
+}
+#applydate{
+    width: 97px;
+    height: 38px;
+    margin-top: 37px;
+    top: 50px;
+}
+.date_filter{
+    margin-right: 7px;
+    float: left;
+}.del_img_view{
+
+}

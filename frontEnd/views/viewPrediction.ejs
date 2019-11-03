@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <title>View Experiment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/croppr.css">
+    <link rel="stylesheet" href="/stylesheets/cropper.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/viewexperiment.js"></script>
+    <link rel="stylesheet" href="/stylesheets/viewexperiment.css">
+    <script src="/javascripts/croppr.js"></script>
+    <script src="/javascripts/cropper.js"></script>
+</head>
+<body>
+<div class="container">
+    <!-- Navigation Bar -->
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/home">Home</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome,
+                                <%= uname %>!</a></li>
+                        <li>
+                            <form class="form" id="form" method="POST" action="/logout">
+                                <a href="/logout" onclick="document.getElementById('form').submit(); return false;">Logout</a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="row divtop">
+        <div class="row">
+            <% for (let i = 0; i < dataImg.length; i++) { %>
+            <% if (dataImg[i].exp_images) { %>
+
+            <!-- Display predictions -->
+            <div class="col-md-4" style="margin: 10px 0 10px 0;">
+                <div class="img-responsive img-thumbnail">
+                    <p><img class=scaled style="height: 100%" src="/uploads/<%= dataImg[i].exp_images %>">
+                    </p>
+                    <p>Type : <b>  <%= JSON.stringify(data[0]['type']).split('"').join("") %></b></p>
+
+                </div>
+
+            </div>
+            <% } else { %>
+            <div class="col-md-4" style="margin: 10px 0 10px 0;">
+                <div class="img-responsive img-thumbnail">
+                    <p><img class=scaled style="height: 100%" src="/uploads/<%= dataImg[i].exp_images %>">
+                    </p>
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

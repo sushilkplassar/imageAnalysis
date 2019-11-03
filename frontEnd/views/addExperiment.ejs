@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Experiment</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="/stylesheets/viewexperiment.css">
+
+</head>
+<body>
+<div class="container">
+    <!-- Navigation Bar -->
+    <div class="container">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/home">Home </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Welcome, <%= uname %>!</a></li>
+                        <li>
+                            <form class="form" id="form" method="POST" action="/logout">
+                                <a href="/logout"
+                                   onclick="document.getElementById('form').submit(); return false;"></span>
+                                    Logout</a></a>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+
+    <div class="row divtop">
+        <h1 class="text-center login-title">Add Experiment</h1>
+
+        <div class="account-wall well col-md-push-3 col-md-6">
+
+            <form class="form" method="POST" action="/addExperiment" enctype="multipart/form-data">
+                <label for="expTitle">Experiment Title</label>
+                <input type="text" class="form-control" placeholder="Experiment Title" name="expTitle" required
+                       autofocus><br>
+
+                <label for="expBirthDate">Date of Experiment (Birth Date) </label>
+                <input type="date" class="form-control" name="expBirthDate" required autofocus><br>
+
+                <label for="expImagingDate">Date of Imaging</label>
+                <input type="date" class="form-control" name="expImagingDate" required autofocus><br>
+
+                <label for="expAntibody">Antibody Used</label>
+                <input type="text" class="form-control" placeholder="Antibody Used" name="expAntibody" required
+                       autofocus><br>
+
+                <label for="expImage">Experiment Image</label>
+                <input type="file" name="expImage" multiple accept="image/*" required  autofocus/> <br>
+
+                <label for="expDescription">Experiment Description</label>
+                <input type="text" class="form-control" placeholder="Experiment Description" name="expDescription" required
+                       autofocus><br>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    Add Experiment
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
