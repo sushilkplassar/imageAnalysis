@@ -6,6 +6,7 @@ let router = express.Router();
 // @desc    Retrieve all the experiment created by the user
 // @access  Private
 router.get('/', function (req, res, next) {
+    console.log('in home.js');
     if (req.isAuthenticated()) {
         let user = req.user;
 
@@ -14,7 +15,7 @@ router.get('/', function (req, res, next) {
             + 'WHERE experiments.users_id = experiment_images.user_id AND experiments.exp_id = experiment_images.exp_id AND experiments.users_id = ' + user.user_id + ' '
             + 'GROUP BY experiment_images.exp_id, experiments.exp_title;', function (error, results, fields) {
             if (error) throw error;
-
+        console.log('user authenticated');
             res.render('home', {uname: user.user_name, data: results});
         });
     } else {

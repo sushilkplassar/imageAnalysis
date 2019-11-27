@@ -4,7 +4,7 @@ let router = express.Router();
 let request = require("request");
 let _ = require("underscore");
 const apiBaseUrl = 'http://127.0.0.1:8000/upload/';
-let ImageUrl = "http://localhost:3000/uploads/";
+let ImageUrl = "http://localhost:5000/uploads/";
 
 // @route   POST /getImagePrediction
 // @desc    Call Python Script, to get the image prediction for the selected images

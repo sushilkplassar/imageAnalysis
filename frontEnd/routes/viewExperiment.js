@@ -4,7 +4,7 @@ let router = express.Router();
 let multer = require('multer');
 let path = require('path');
 let res = require("express");
-let ImageUrl = "http://localhost:3000/uploads/";
+let ImageUrl = "http://localhost:5000/uploads/";
 
 // Setting up upload function using multer
 let upload = multer({
